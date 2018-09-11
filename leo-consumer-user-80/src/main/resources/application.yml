@@ -1,0 +1,21 @@
+spring:
+   application:
+    name: microservicecloud-consumer
+
+server:
+  port: 80
+  
+eureka:
+  client: #客户端注册进eureka服务列表内
+    #register-with-eureka: false #是否注册
+    serviceUrl: 
+       defaultZone: http://localhost:7001/eureka # Eureka地址 多个用 "," 分隔
+  instance:
+    instance-id: microservicecloud-consumer-user-80
+    prefer-ip-address: true     #访问路径可以显示IP地址   
+
+info: 
+  app.name: leo-microservicecloud
+  company.name: www.leo.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
