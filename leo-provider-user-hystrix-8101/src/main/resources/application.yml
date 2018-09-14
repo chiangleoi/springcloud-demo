@@ -39,5 +39,5 @@ management:
 info: 
   app.name: leo-microservicecloud
   company.name: www.leo.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: "@project.artifactId@"
+  build.version: "@project.version@"

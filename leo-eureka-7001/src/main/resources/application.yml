@@ -6,11 +6,14 @@ spirng:
     name: leo-euraka-server
       
 eureka:
+  server:
+    enable-self-preservation: true #关闭自我保护  ps:90秒后未收到心跳会删除服务 保护是多个服务未发心跳会怀疑网络已经断开，开启自我保护
   instance:
-    hostname: ${spring.cloud.client.ip-address}
+    # preferIpAddress: true #当应用程序向eureka注册时，它使用其IP地址而不是其主机名
+    hostname: ${spring.cloud.client.ip-address} # 服务本身的IP地址
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    registerWithEureka: false # 是否注册自身到 eureka 服务器
+    fetchRegistry: false # 是否 从 eureka 服务器获取注册信息
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ # eureka 服务器所在的地址
       

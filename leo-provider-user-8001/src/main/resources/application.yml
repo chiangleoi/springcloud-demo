@@ -29,9 +29,15 @@ eureka:
   instance:
     instance-id: microservicecloud-provider-user-8001
     prefer-ip-address: true     #访问路径可以显示IP地址     
-    
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 开启所有的 actuator
+
 info: 
   app.name: leo-microservicecloud
   company.name: www.leo.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: "@project.artifactId@"
+  build.version: "@project.version@"
